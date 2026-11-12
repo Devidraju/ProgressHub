@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ProgressHub helps you manage goals, lessons, and progress.">
+  <title>ProgressHub — Your goals, in progress</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard"><span class="brand-mark">P</span><span>Progress<span class="brand-accent">Hub</span></span></a>
+      <p class="nav-heading">WORKSPACE</p>
+      <nav class="nav-list" aria-label="Main navigation">
+        <a class="nav-link active" href="#dashboard"><span>⌂</span> Dashboard</a>
+        <a class="nav-link" href="#goals"><span>◎</span> My goals</a>
+        <a class="nav-link" href="#tasks"><span>☷</span> All tasks</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="tip-card"><span class="tip-star">✦</span><h3>Small steps add up.</h3><p>Keep showing up. Progress follows.</p></div>
+        <p class="sidebar-footer">ProgressHub · Your personal space</p>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div><p class="eyebrow">YOUR PERSONAL WORKSPACE</p><h1>Good to see you<span class="accent-dot">.</span></h1><p class="subtitle">Make today count, one task at a time.</p></div>
+        <div class="avatar" aria-label="Profile">D</div>
+      </header>
+
+      <section class="welcome-banner">
+        <div class="welcome-copy">
+          <p class="banner-label">YOUR JOURNEY, YOUR PACE</p>
+          <h2>Make progress<br>you can see.</h2>
+          <p>Bring your goals and daily tasks together in one calm, focused space.</p>
+          <a class="banner-link" href="#goals">Explore your workspace <span>→</span></a>
+        </div>
+        <div class="banner-art" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="sun"></div><div class="floating-card"><span class="floating-check">✓</span><span><strong>One step at a time</strong><small>Your progress matters</small></span></div></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading"><div><h2>Your overview</h2><p>A little progress is still progress.</p></div><span class="eyebrow-muted">ALL TIME</span></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon purple">◎</span><span class="stat-caption">IN FOCUS</span></div><p class="stat-value" id="activeGoalsCount">0</p><p class="stat-label">Active goals</p><p class="stat-note">Your next chapter starts here</p></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon green">✓</span><span class="stat-caption">ACCOMPLISHED</span></div><p class="stat-value" id="completedTasksCount">0</p><p class="stat-label">Tasks completed</p><p class="stat-note">Every win counts</p></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon amber">◷</span><span class="stat-caption">UP NEXT</span></div><p class="stat-value" id="remainingTasksCount">0</p><p class="stat-label">Tasks remaining</p><p class="stat-note">One thing at a time</p></article>
+        </div>
+      </section>
+
+      <section class="section-block" id="goals">
+        <div class="section-heading"><div><h2>Your goals</h2><p>Everything you're working towards.</p></div><span class="eyebrow-muted">YOUR PLAN</span></div>
+        <form class="goal-form" id="goalForm">
+          <div class="form-field"><label for="goalName">Goal name</label><input id="goalName" name="goalName" type="text" maxlength="80" placeholder="e.g. Python Course" required></div>
+          <div class="form-field"><label for="goalDeadline">Target date <span class="optional">(optional)</span></label><input id="goalDeadline" name="goalDeadline" type="date"></div>
+          <button class="primary-button" type="submit">+ Add Goal</button>
+        </form>
+        <p class="form-message" id="goalMessage" role="status" aria-live="polite"></p>
+        <div class="goals-grid" id="goalsList"></div>
+      </section>
+
+      <section class="section-block" id="tasks">
+        <div class="section-heading"><div><h2>All tasks</h2><p>Small steps that move your goals forward.</p></div>
+          <div class="filter-wrap"><label class="sr-only" for="taskFilter">Filter tasks</label><select id="taskFilter"><option value="all">All tasks</option><option value="pending">Pending</option><option value="completed">Completed</option></select></div>
+        </div>
+        <form class="task-form" id="taskForm">
+          <div class="form-field task-goal-field"><label for="taskGoal">Goal</label><select id="taskGoal" required><option value="">Choose a goal first</option></select></div>
+          <div class="form-field task-name-field"><label for="taskName">Task or lesson</label><input id="taskName" type="text" maxlength="120" placeholder="e.g. Learn Python loops" required></div>
+          <button class="primary-button" type="submit">+ Add Task</button>
+        </form>
+        <p class="form-message" id="taskMessage" role="status" aria-live="polite"></p>
+        <div class="task-list" id="taskList"></div>
+      </section>
+
+      <footer class="page-footer">Built with intention. Growing one step at a time.</footer>
+    </main>
+  </div>
+</body>
+</html>
